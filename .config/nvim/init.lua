@@ -1,0 +1,5 @@
+require("package_manager.lazy")
+require("config.colorscheme")
+require("config.options")
+require("config.keymaps")
+require("config.autocmds")
