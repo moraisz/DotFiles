@@ -24,7 +24,7 @@
     "memory",
     // "swap",
     "disk",
-    // "poweradapter",
+    "poweradapter",
     // "locale",
     "break",
     "colors"

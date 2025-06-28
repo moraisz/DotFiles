@@ -17,6 +17,7 @@
         "tray",
         "cpu",
         "memory",
+        "battery",
         "network",
         "pulseaudio",
         "custom/power"
@@ -86,19 +87,28 @@
         "format": "  {}%",
         "on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'"
     },
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-icons": {
+            "charging": "󰂄",
+            "discharging": "󰁹",
+            "full": "󰁻",
+            "empty": "󰁺"
+        }
+    },
     "network": {
         "format-ethernet": " 󰀂 ",
         "tooltip-format-ethernet": "󰀂 {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
         "format-disconnected": " ⚠ ",
         "tooltip-format-disconnected": "Disconnected",
-        "interval": 2,
+        "interval": 2
     },
     "pulseaudio": {
         "format": "{icon}",
         "nospacing": 1,
         "tooltip-format": "Volume : {volume}%",
         "format-muted": "󰝟",
-        "format-source": "{volume}% ",
+        "format-source": "",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",

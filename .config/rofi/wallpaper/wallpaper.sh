@@ -42,8 +42,8 @@ elif [ "$XDG_CURRENT_DESKTOP" = "sway" ]; then
 
     exit 0
 else
-    swww img -t any --transition-bezier 0.0,0.0,1.0,1.0 --transition-duration 1 --transition-step 255 --transition-fps 60 "$wallpaper" && \
-    ln -sf "$wallpaper" "$WALLPAPERS_DIR"/current.wall
+    swww img -t any --transition-bezier 0.0,0.0,1.0,1.0 --transition-duration 1 --transition-step 255 --transition-fps 60 "$wallpaper"
+    # ln -sf "$wallpaper" "$WALLPAPERS_DIR"/current.wall
 fi
 
 exit 1

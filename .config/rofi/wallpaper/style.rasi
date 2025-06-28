@@ -156,45 +156,46 @@ element {
     border:                      0px solid;
     border-radius:               5px;
     border-color:                @mauve;
-    background-color:            transparent;
+    // background-color:            transparent;
+    background-color:            @surface1;
     text-color:                  @text;
     cursor:                      pointer;
 }
 element normal.normal {
-    background-color:            var(normal-background);
-    text-color:                  var(normal-foreground);
+    background-color:            @base;
+    text-color:                  @text;
 }
 element normal.urgent {
-    background-color:            var(urgent-background);
-    text-color:                  var(urgent-foreground);
+    background-color:            @pink;
+    text-color:                  @text;
 }
 element normal.active {
-    background-color:            var(active-background);
-    text-color:                  var(active-foreground);
+    background-color:            @red;
+    text-color:                  @text;
 }
 element selected.normal {
-    background-color:            var(background);
-    text-color:                  var(selected);
+    background-color:            @orange;
+    text-color:                  @text;
 }
 element selected.urgent {
-    background-color:            var(selected-urgent-background);
-    text-color:                  var(selected-urgent-foreground);
+    background-color:            @red;
+    text-color:                  @text;
 }
 element selected.active {
-    background-color:            var(selected-active-background);
-    text-color:                  var(selected-active-foreground);
+    background-color:            @red;
+    text-color:                  @text;
 }
 element alternate.normal {
-    background-color:            var(alternate-normal-background);
-    text-color:                  var(alternate-normal-foreground);
+    background-color:            @base;
+    text-color:                  @text;
 }
 element alternate.urgent {
-    background-color:            var(alternate-urgent-background);
-    text-color:                  var(alternate-urgent-foreground);
+    background-color:            @lavander;
+    text-color:                  @text;
 }
 element alternate.active {
-    background-color:            var(alternate-active-background);
-    text-color:                  var(alternate-active-foreground);
+    background-color:            @lavander;
+    text-color:                  @text;
 }
 element-icon {
     background-color:            transparent;
@@ -233,8 +234,8 @@ button {
     cursor:                      pointer;
 }
 button selected {
-    background-color:            var(active);
-    text-color:                  var(selected-normal-foreground);
+    background-color:            @base;
+    text-color:                  @text;
 }
 
 /*****----- Message -----*****/
@@ -252,13 +253,13 @@ textbox {
     padding:                     5px 10px;
     border:                      0px solid;
     border-radius:               20px;
-    border-color:                @border-colour;
-    background-color:            @alternate-background;
-    text-color:                  @foreground-colour;
+    border-color:                @mauve;
+    background-color:            @base;
+    text-color:                  @text;
     vertical-align:              0.5;
     horizontal-align:            0.0;
     highlight:                   none;
-    placeholder-color:           @foreground-colour;
+    placeholder-color:           @text;
     blink:                       true;
     markup:                      true;
 }
@@ -266,7 +267,7 @@ error-message {
     padding:                     10px;
     border:                      2px solid;
     border-radius:               20px;
-    border-color:                @border-colour;
-    background-color:            @background-colour;
-    text-color:                  @foreground-colour;
+    border-color:                @mauve;
+    background-color:            @base;
+    text-color:                  @text;
 }
