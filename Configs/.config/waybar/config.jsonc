@@ -4,7 +4,7 @@
     "position": "top",
     "reload_style_on_change": true,
     "spacing": 0,
-    "height": 42,
+    // "height": 42,
     "modules-left": [
         "custom/logo",
         "hyprland/workspaces",
@@ -17,15 +17,17 @@
         "tray",
         "cpu",
         "memory",
-        "battery",
         "network",
-        "pulseaudio",
+        "bluetooth",
+        "battery",
+        "pulseaudio#output",
+        "pulseaudio#input",
         "custom/power"
     ],
 
     // Left
     "custom/logo": {
-        "format": "  ",
+        "format": "",
         "tooltip": false
     },
     "hyprland/workspaces": {
@@ -87,34 +89,53 @@
         "format": "  {}%",
         "on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'"
     },
-    "battery": {
-        "format": "{icon} {capacity}%",
-        "format-icons": {
-            "charging": "󰂄",
-            "discharging": "󰁹",
-            "full": "󰁻",
-            "empty": "󰁺"
-        }
-    },
     "network": {
-        "format-ethernet": " 󰀂 ",
-        "tooltip-format-ethernet": "󰀂 {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "format-ethernet": "  ",
+        "format-wifi": " 󰤨 ",
+        "tooltip-format-ethernet": " {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-wifi": "󰤨 {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
         "format-disconnected": " ⚠ ",
         "tooltip-format-disconnected": "Disconnected",
         "interval": 2
     },
-    "pulseaudio": {
+    "bluetooth": {
+        "format": "",
+        "format-disabled": "",
+        "format-connected": "",
+        "tooltip-format": "Devices connected: {num_connections}\n{device_alias}",
+        "tooltip-format-connected": "Devices connected: {num_connections}\n{device_alias}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "blueman-manager"
+    },
+    "battery": {
         "format": "{icon}",
-        "nospacing": 1,
-        "tooltip-format": "Volume : {volume}%",
+        "format-icons": {
+            "charging": "",
+            "plugged": "",
+            "discharging": ["", "", "", "", ""],
+            "full": ""
+        },
+        "tooltip": true,
+        "tooltip-format": "Capacity: {capacity}%\n{timeTo}",
+        "interval": 1
+    },
+    "pulseaudio#output": {
+        "format": "{icon}",
+        "tooltip-format": "Volume: {volume}%",
         "format-muted": "󰝟",
-        "format-source": "",
-        "format-source-muted": "",
         "format-icons": {
             "headphone": "",
             "default": ["󰖀","󰕾"]
         },
         "on-click": "pavucontrol"
+    },
+    "pulseaudio#input": {
+        "format": "{format_source}",
+        "tooltip-format": "Mic: {source_volume}%",
+        "on-click": "pavucontrol",
+        "max-length": 20,
+        "format-source": "󰍬",
+        "format-source-muted": "󰍭"
     },
     "custom/power": {
         "format": "󰤆",
