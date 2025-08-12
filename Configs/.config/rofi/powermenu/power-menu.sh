@@ -10,7 +10,7 @@ options=(
     "  Reboot"
     "  Lock"
     " Suspend"
-    " Logout"
+    "  Logout"
     " Cancel"
 )
 

@@ -20,8 +20,6 @@ export ASDF_DATA_DIR="$HOME/.asdf"
 fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 autoload -Uz compinit && compinit
 
-export ASDF_GOLANG_VERSION=1.24.3
-
 # flyctl
 export FLYCTL_INSTALL="/home/morais/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"

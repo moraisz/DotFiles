@@ -9,6 +9,7 @@ My Dotfiles for various applications and environments in Arch Linux with Hyprlan
 - zsh
 - tmux
 - mako
-- rofi
+- rofi-wayland
 - waybar
-
+- fastfetch
+- nvim
