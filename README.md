@@ -4,12 +4,31 @@ My Dotfiles for various applications and environments in Arch Linux with Hyprlan
 
 ## Packages
 
-- btop
+### System
+
 - swww
-- zsh
-- tmux
 - mako
 - rofi-wayland
 - waybar
+
+### Terminal
+
+- zsh
+- oh-my-zsh
+- tmux
+
+### Applications
+
 - fastfetch
 - nvim
+- btop
+
+### Fonts
+
+- JetBrainsMono Nerd Font Mono
+
+## Browser
+
+- Zen Browser
+
+Extensions: Ublock Origin, DuckDuckGo
