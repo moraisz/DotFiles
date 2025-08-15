@@ -1,11 +1,11 @@
 configuration {
     /* General settings */
     modi: "drun,run,filebrowser,window";
-	font: "Jet Brains Mono Regular 14";
+	font: "JetBrainsMono Nerd Font Medium 14";
     filter: "";
     cycle: true;
 	show-icons: true;
-	icon-theme: "Papirus";
+	icon-theme: "Adwaita";
     steal-focus: false;
     terminal: "kitty";
     scroll-method: 0;

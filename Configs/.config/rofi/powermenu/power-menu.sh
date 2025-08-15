@@ -21,13 +21,13 @@ choice="$(printf '%s\n' "${options[@]}" | rofi -dmenu \
 )"
 
 case "$choice" in
-    "  Shutdown")
+    " Shutdown")
         systemctl poweroff
         ;;
-    "  Reboot")
+    " Reboot")
         systemctl reboot
         ;;
-    "  Lock")
+    " Lock")
         if command -v gtklock >/dev/null; then
             gtklock
         elif command -v hyprlock >/dev/null; then
