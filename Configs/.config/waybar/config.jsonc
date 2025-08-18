@@ -18,7 +18,8 @@
         "cpu",
         "memory",
         "network",
-        "bluetooth",
+        // "bluetooth",
+        "custom/bluetooth",
         "battery",
         "pulseaudio#output",
         "pulseaudio#input",
@@ -98,14 +99,19 @@
         "tooltip-format-disconnected": "Disconnected",
         "interval": 2
     },
-    "bluetooth": {
-        "format": "",
-        "format-disabled": "",
-        "format-connected": "",
-        "tooltip-format": "Devices connected: {num_connections}\n{device_alias}",
-        "tooltip-format-connected": "Devices connected: {num_connections}\n{device_alias}",
-        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-        "on-click": "blueman-manager"
+    // "bluetooth": {
+    //     "format": "",
+    //     "format-disabled": "",
+    //     "format-connected": "",
+    //     "tooltip-format": "Devices connected: {num_connections}\n{device_alias}",
+    //     "tooltip-format-connected": "Devices connected: {num_connections}\n{device_alias}",
+    //     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    //     "on-click": "blueman-manager"
+    // },
+    "custom/bluetooth": {
+        "exec": "~/.config/waybar/scripts/check-bluetooth.sh",
+        "return-type": "json",
+        "interval": 1
     },
     "battery": {
         "format": "{icon}",

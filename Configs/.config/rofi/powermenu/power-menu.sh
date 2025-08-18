@@ -6,11 +6,11 @@ theme='style'
 
 # Power menu options
 options=(
-    "  Shutdown"
-    "  Reboot"
-    "  Lock"
+    " Shutdown"
+    " Reboot"
+    " Lock"
     " Suspend"
-    "  Logout"
+    " Logout"
     " Cancel"
 )
 

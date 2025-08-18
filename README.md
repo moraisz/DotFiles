@@ -10,21 +10,24 @@ My Dotfiles for various applications and environments in Arch Linux with Hyprlan
 - mako
 - rofi-wayland
 - waybar
+- pywal16
 
 ### Terminal
 
+- kitty
 - zsh
 - oh-my-zsh
 - tmux
 
-### Applications
+### CLI Applications
 
 - fastfetch
 - nvim
 - btop
 
-### Fonts
+### Fonts and Theme
 
+- Adwaita GTK Theme
 - JetBrainsMono Nerd Font Mono
 
 ## Browser
@@ -32,3 +35,10 @@ My Dotfiles for various applications and environments in Arch Linux with Hyprlan
 - Zen Browser
 
 Extensions: Ublock Origin, DuckDuckGo
+
+## ToDo
+
+- Refactor the rofi files.
+- Create a theme selector script for rofi.
+- Refactor the files to use custom colors.
+- Separate Hyprland config files into different directories.
