@@ -34,11 +34,12 @@ My Dotfiles for various applications and environments in Arch Linux with Hyprlan
 
 - Zen Browser
 
-Extensions: Ublock Origin, DuckDuckGo
+Extensions: Ublock Origin, DuckDuckGo, Dark Reader
 
 ## ToDo
 
-- Refactor the rofi files.
+- Refactor the rofi files. (Doing)
+- Create a state file to current wallpaper.
 - Create a theme selector script for rofi.
 - Refactor the files to use custom colors.
 - Separate Hyprland config files into different directories.

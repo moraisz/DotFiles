@@ -34,3 +34,5 @@ if [[ -z "$TMUX" ]]; then
     tmux
 fi
 
+# spicetify
+export PATH=$PATH:/home/morais/.spicetify

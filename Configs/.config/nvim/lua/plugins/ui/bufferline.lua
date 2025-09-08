@@ -3,7 +3,7 @@ return {
     event = "VeryLazy",
     dependencies = { "kyazdani42/nvim-web-devicons" },
     opts = {
-        highlights = require("catppuccin.groups.integrations.bufferline").get(),
+        -- highlights = require("catppuccin.groups.integrations.bufferline").get(),
         options = {
             diagnostics = "nvim_lsp",
             always_show_bufferline = false,
