@@ -22,7 +22,7 @@ entry {
 element {
     border: 2px;
     border-color: @foreground;
-    border-radius: 12px;
+    // border-radius: 12px;
     padding: 18px;
     spacing: 8px;
     margin: 12px;
