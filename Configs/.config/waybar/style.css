@@ -44,9 +44,10 @@
 
 /* Bar Styling */
 #waybar {
+    border: 2px solid @mauve;
     background-color: @base;
     /* background-color: transparent; */
-    padding: 0px;
+    padding: 12px;
 }
 
 /* Modules */
@@ -62,19 +63,16 @@
 #battery,
 #pulseaudio,
 #custom-power {
-    /* border: 1px solid #000; */
     background-color: @base;
-    /* border-radius: 8px; */
-    /* margin-top: 6px; */
+    margin: 2px;
     padding: 0px 3px;
 }
 
 /* Custom logo */
 #custom-logo {
     padding-right: 13px;
-    padding-left: 11px;
+    padding-left: 10px;
     font-size: 20px;
-    /* margin-left: 12px; */
     color: @sapphire;
 }
 
@@ -91,7 +89,6 @@
     box-shadow: inset 0 -3px transparent;
     padding: 0 14px;
     border: none;
-    /* border-radius: 8px; */
     background-color: @base;
     color: @mauve;
 }
@@ -129,7 +126,6 @@
 }
 
 tooltip {
-    /* border-radius: 8px; */
     padding: 15px;
     background-color: @surface0;
 }
@@ -142,7 +138,6 @@ tooltip label {
 
 /* Tray */
 #tray {
-    /* font-size: 20px; */
     margin-right: 5px;
     padding: 0px 4px;
     font-size: 16px;
@@ -151,7 +146,6 @@ tooltip label {
 /* PC Management */
 #cpu {
     color: @red;
-    /* border-radius: 8px 0px 0px 8px; */
     padding: 0px 8px 0px 8px;
 }
 
@@ -161,7 +155,6 @@ tooltip label {
 
 #memory {
     color: @green;
-    /* border-radius: 0px 8px 8px 0px; */
     padding: 0px 8px;
     margin-right: 5px;
 }
@@ -176,7 +169,6 @@ tooltip label {
     padding-left: 6px;
     padding-right: 0px;
     font-size: 16px;
-    /* border-radius: 8px 0px 0px 8px; */
 }
 
 #network:hover {
@@ -189,7 +181,6 @@ tooltip label {
     padding-left: 6px;
     padding-right: 5px;
     font-size: 16px;
-    /* border-radius: 0px; */
 }
 
 #bluetooth:hover {
@@ -202,7 +193,6 @@ tooltip label {
     color: @yellow;
     padding-left: 6px;
     padding-right: 8px;
-    /* border-radius: 0px; */
 }
 
 #battery:hover {
@@ -212,10 +202,8 @@ tooltip label {
 /* Pulseaudio */
 #pulseaudio.output {
     color: @lavander;
-    /* font-size: 18px; */
     padding-left: 4px;
     padding-right: 12px;
-    /* border-radius: 0px; */
 }
 
 /* #pulseaudio.input { */
@@ -240,9 +228,7 @@ tooltip label {
     color: @peach;
     padding-left: 10px;
     padding-right: 12px;
-    /* margin-right: 12px; */
     font-size: 16px;
-    /* border-radius: 8px; */
 }
 
 #custom-power:hover {
