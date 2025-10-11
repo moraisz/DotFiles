@@ -1,21 +1,5 @@
 @import "../style.rasi"
 
-element {
-    padding: 4px;
-    spacing: 8px;
-    orientation: horizontal;
-    children: [ element-icon, element-text];
-}
-
-element-text {
-    text-color: @foreground;
-    vertical-align: 0.5;
-}
-
-element-text selected {
-    color: @selected-urgent-background;
-}
-
 element-icon {
     padding: 4px;
     vertical-align: 0.5;

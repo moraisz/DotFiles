@@ -1,37 +1,4 @@
-/*
- * Catppuccin Mocha palette
- */
-@define-color base #1e1e2e;
-@define-color mantle #181825;
-@define-color crust #11111b;
-
-@define-color text #cdd6f4;
-@define-color subtext0 #a6adc8;
-@define-color subtext1 #bac2de;
-
-@define-color surface0 rgba(22, 25, 37, 0.9);
-@define-color surface1 #45475a;
-@define-color surface2 #585b70;
-@define-color surface3 #394161;
-
-@define-color overlay0 #6c7086;
-@define-color overlay1 #7f849c;
-@define-color overlay2 #9ba3c3;
-
-@define-color blue #89b4fa;
-@define-color lavender #b4befe;
-@define-color sapphire #74c7ec;
-@define-color sky #89dceb;
-@define-color teal #94e2d5;
-@define-color green #a6e3a1;
-@define-color yellow #f9e2af;
-@define-color peach #fab387;
-@define-color maroon #eba0ac;
-@define-color red #f38ba8;
-@define-color mauve #cba6f7;
-@define-color pink #f5c2e7;
-@define-color flamingo #f2cdcd;
-@define-color rosewater #f5e0dc;
+@import 'colors.css';
 
 /* Universal Styling */
 * {
@@ -44,8 +11,8 @@
 
 /* Bar Styling */
 #waybar {
-    border: 2px solid @mauve;
-    background-color: @base;
+    border: 2px solid @border;
+    background-color: @background;
     /* background-color: transparent; */
     padding: 12px;
 }
@@ -63,7 +30,7 @@
 #battery,
 #pulseaudio,
 #custom-power {
-    background-color: @base;
+    background-color: @background;
     margin: 2px;
     padding: 0px 3px;
 }
@@ -73,7 +40,11 @@
     padding-right: 13px;
     padding-left: 10px;
     font-size: 20px;
-    color: @sapphire;
+    color: @icon;
+}
+#custom-logo:hover {
+    color: @selected;
+    background-color: @background-alt;
 }
 
 /* Workspaces */
@@ -89,51 +60,54 @@
     box-shadow: inset 0 -3px transparent;
     padding: 0 14px;
     border: none;
-    background-color: @base;
-    color: @mauve;
+    color: @foreground-alt;
+    background-color: @background;
 }
 
 #workspaces button.active {
-    color: @mauve;
-    background-color: @surface3;
+    color: @selected;
+    background-color: @background-alt;
 }
 
 #workspaces button:hover {
     box-shadow: inherit;
     text-shadow: inherit;
-    color: @mauve;
-    background-color: @surface3;
+    color: @selected;
+    background-color: @background-alt;
 }
 
 /* MPRIS */
 #mpris {
     padding: 0px 8px;
-    color: @teal;
+    color: @foreground;
 }
 
 #mpris:hover {
-    background-color: @surface3
+    background-color: @background-alt;
+    color: @selected;
 }
 
 /* Clock */
 #clock {
-    color: @lavander;
+    color: @foreground;
     padding: 0px 8px;
 }
 
 #clock:hover {
-    background-color: @surface3
+    color: @selected;
+    background-color: @background-alt;
 }
 
 tooltip {
     padding: 15px;
-    background-color: @surface0;
+    background-color: @background;
+    border: 2px solid @border;
 }
 
 tooltip label {
     font-size: 14px;
     padding: 5px;
-    background-color: @surface0;
+    background-color: @background;
 }
 
 /* Tray */
@@ -145,63 +119,68 @@ tooltip label {
 
 /* PC Management */
 #cpu {
-    color: @red;
+    color: @foreground;
     padding: 0px 8px 0px 8px;
 }
 
 #cpu:hover {
-    background-color: @surface3;
+    color: @selected;
+    background-color: @background-alt;
 }
 
 #memory {
-    color: @green;
+    color: @foreground;
     padding: 0px 8px;
     margin-right: 5px;
 }
 
 #memory:hover {
-    background-color: @surface3;
+    color: @selected;
+    background-color: @background-alt;
 }
 
 /* Network */
 #network {
-    color: @yellow;
+    color: @foreground;
     padding-left: 6px;
     padding-right: 0px;
     font-size: 16px;
 }
 
 #network:hover {
-    background-color: @surface3;
+    color: @selected;
+    background-color: @background-alt;
 }
 
 /* Bluetooth */
 #bluetooth {
-    color: @blue;
+    color: @foreground;
     padding-left: 6px;
     padding-right: 5px;
     font-size: 16px;
 }
 
 #bluetooth:hover {
-    background-color: @surface3;
+    color: @selected;
+    background-color: @background-alt;
 }
 
 /* Battery */
 #battery {
     font-size: 16px;
-    color: @yellow;
+    color: @foreground;
     padding-left: 6px;
     padding-right: 8px;
 }
 
 #battery:hover {
-    background-color: @surface3;
+    color: @selected;
+    background-color: @background-alt;
 }
 
 /* Pulseaudio */
 #pulseaudio.output {
-    color: @lavander;
+    color: @foreground;
     padding-left: 4px;
     padding-right: 12px;
 }
@@ -220,17 +199,19 @@ tooltip label {
 /* } */
 
 #pulseaudio:hover {
-    background-color: @surface3;
+    color: @selected;
+    background-color: @background-alt;
 }
 
 /* PowerOff */
 #custom-power {
-    color: @peach;
+    color: @foreground;
     padding-left: 10px;
     padding-right: 12px;
     font-size: 16px;
 }
 
 #custom-power:hover {
-    background-color: @surface3;
+    color: @selected;
+    background-color: @background-alt;
 }

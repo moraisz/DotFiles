@@ -1,0 +1,10 @@
+@define-color background #000000;
+@define-color background-alt #111111;
+
+@define-color foreground #cccccc;
+@define-color foreground-alt #a0a0a0;
+
+@define-color selected #ffffff;
+@define-color icon #cccccc;
+
+@define-color border #ffffff;

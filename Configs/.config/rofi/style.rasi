@@ -7,27 +7,13 @@
 
 window {
     background-color: @background;
-    // width: 780px;
     width: 480px;
     height: 680px;
     border: 2px;
-    // border-radius: 8px;
-    border-color: @foreground;
+    border-color: @border;
     orientation: horizontal;
-    // children: [dummy, mainbox];
     children: [mainbox];
 }
-
-// dummy {
-//     border: 1px;
-//     border-radius: 8px;
-//     border-color: @foreground;
-//     margin: 4px;
-//     background-color: transparent;
-//     background-image: url("~/DotFiles/Wallpapers/wallpaper-rofi.jpg", height);
-//     expand: false;
-//     width: 15%;
-// }
 
 mainbox {
     border-radius: 10px;
@@ -71,16 +57,21 @@ element {
     children: [ element-icon, element-text];
 }
 
+element selected {
+    border: 2px;
+    border-color: @selected;
+}
+
 element-icon {
     vertical-align: 0.5;
     size: 50px;
 }
 
 element-text {
-    text-color: @foreground;
+    text-color: @foreground-alt;
     vertical-align: 0.5;
 }
 
 element-text selected {
-    color: @selected-urgent-background;
+    color: @selected;
 }

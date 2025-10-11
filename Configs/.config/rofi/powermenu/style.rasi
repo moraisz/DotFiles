@@ -20,9 +20,8 @@ entry {
 }
 
 element {
-    border: 2px;
-    border-color: @foreground;
-    // border-radius: 12px;
+    // border: 2px;
+    // border-color: @foreground-alt;
     padding: 18px;
     spacing: 8px;
     margin: 12px;
@@ -31,13 +30,12 @@ element {
 }
 
 element-text {
-    text-color: @foreground;
+    text-color: @foreground-alt;
     vertical-align: 0;
 }
 
-element selected, element-text selected {
-    border-color: @selected-urgent-background;
-    color: @selected-urgent-background;
+element-text selected {
+    color: @selected;
 }
 
 element-icon {

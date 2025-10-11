@@ -1,0 +1,12 @@
+| Nome               | Hex       | RGB             |
+| ------------------ | --------- | --------------- |
+| Branco             | `#ffffff` | (255, 255, 255) |
+| Cinza muito claro  | `#e6e6e6` | (230, 230, 230) |
+| Cinza claro        | `#cccccc` | (204, 204, 204) |
+| Cinza médio-claro  | `#b3b3b3` | (179, 179, 179) |
+| Cinza médio        | `#999999` | (153, 153, 153) |
+| Cinza médio-escuro | `#808080` | (128, 128, 128) |
+| Cinza escuro       | `#666666` | (102, 102, 102) |
+| Cinza muito escuro | `#4d4d4d` | (77, 77, 77)    |
+| Quase preto        | `#333333` | (51, 51, 51)    |
+| Preto              | `#000000` | (0, 0, 0)       |
