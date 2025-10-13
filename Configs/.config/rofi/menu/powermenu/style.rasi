@@ -1,0 +1,41 @@
+@import "DotFiles/Configs/.config/rofi/style.rasi"
+
+window {
+    height: 300px;
+}
+
+listview {
+    scrollbar: false;
+    columns: 2;
+    lines: 3;
+}
+
+inputbar {
+    enabled: false;
+}
+
+entry {
+    enabled: false;
+}
+
+element {
+    padding: 18px;
+    spacing: 8px;
+    margin: 12px;
+    orientation: horizontal;
+    children: [ element-icon, element-text];
+}
+
+element-text {
+    text-color: @foreground-alt;
+    vertical-align: 0;
+}
+
+element-text selected {
+    color: @selected;
+}
+
+element-icon {
+    vertical-align: 0;
+    size: 0em;
+}

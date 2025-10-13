@@ -1,0 +1,7 @@
+@import "DotFiles/Configs/.config/rofi/style.rasi"
+
+element-icon {
+    padding: 4px;
+    vertical-align: 0.5;
+    size: 50px;
+}

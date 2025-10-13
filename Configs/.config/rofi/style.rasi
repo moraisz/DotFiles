@@ -60,6 +60,7 @@ element {
 element selected {
     border: 2px;
     border-color: @selected;
+    background-color: @background-alt;
 }
 
 element-icon {
