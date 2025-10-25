@@ -8,7 +8,9 @@ return {
         return {
             auto_insert_mode = true,
             question_header = "  " .. user .. " ",
+            assistant = "  Copilot ",
             answer_header = "  Copilot ",
+            tool = "󰊳  Tool ",
             window = {
                 width = 0.4,
             },

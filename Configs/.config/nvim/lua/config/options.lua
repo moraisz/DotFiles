@@ -1,4 +1,5 @@
 local opt = vim.opt
+local o = vim.o
 
 -- Interface
 opt.number = true               -- linhas numeradas
@@ -34,9 +35,8 @@ opt.timeoutlen = 400            -- tempo para mapeamentos (ex: which-key)
 -- Aparência
 opt.wrap = false                -- não quebra linha
 opt.linebreak = true            -- quebra linha em palavras
--- opt.colorcolumn = "100"         -- coluna guia de 100 caracteres
-vim.o.laststatus = 3
-vim.o.cmdheight = 0
+o.laststatus = 3
+o.cmdheight = 0
 
 -- Clipboard
 opt.clipboard = "unnamedplus"  -- usa clipboard do sistema (requer suporte)
@@ -53,3 +53,7 @@ opt.completeopt = { "menu", "menuone", "noselect" }  -- auto-completion
 opt.confirm = true              -- confirma ações em vez de erro
 opt.shortmess:append("cI")     -- oculta mensagens redundantes
 
+-- Folds
+opt.foldlevel = 99
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"

@@ -94,7 +94,7 @@
         "format-wifi": "󰤨 ",
         "tooltip-format-ethernet": " {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
         "tooltip-format-wifi": "󰤨 {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-        "format-disconnected": " ⚠ ",
+        "format-disconnected": "⚠ ",
         "tooltip-format-disconnected": "Disconnected",
         "interval": 2
     },
