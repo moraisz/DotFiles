@@ -1,7 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+source ~/.local/bin/envs.sh
 
 # Current directory for files
-ROFI_THEME="$HOME/DotFiles/Configs/.config/rofi/menu/powermenu/style.rasi"
+ROFI_THEME="$ROFI_POWERMENU_DIR/style.rasi"
+ROFI_CMD="rofi -dmenu -theme $ROFI_THEME"
 
 # Power menu options
 OPTIONS=(
@@ -14,10 +17,7 @@ OPTIONS=(
 )
 
 # Show Rofi with two columns, no input bar, and large font
-CHOICE="$(printf '%s\n' "${OPTIONS[@]}" | rofi -dmenu \
-    -p 'Power Menu' \
-    -theme ${ROFI_THEME}
-)"
+CHOICE="$(printf '%s\n' "${OPTIONS[@]}" | $ROFI_CMD)"
 
 case "$CHOICE" in
     " Cancel")

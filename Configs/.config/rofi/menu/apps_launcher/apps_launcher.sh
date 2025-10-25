@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-ROFI_THEME="$HOME/DotFiles/Configs/.config/rofi/menu/apps_launcher/style.rasi"
+source ~/.local/bin/envs.sh
+
+ROFI_THEME="$ROFI_APPS_LAUNCHER_DIR/style.rasi"
 
 rofi \
     -show drun \

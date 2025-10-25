@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+# Function to get combined battery percentage
+get_battery_percentage() {
+    local bat0="/sys/class/power_supply/BAT0"
+    local bat1="/sys/class/power_supply/BAT1"
+
+    local energy_now_0=$(cat "$bat0/energy_now")
+    local energy_now_1=$(cat "$bat1/energy_now")
+
+    local energy_full_0=$(cat "$bat0/energy_full")
+    local energy_full_1=$(cat "$bat1/energy_full")
+
+    local total_now=$((energy_now_0 + energy_now_1))
+    local total_full=$((energy_full_0 + energy_full_1))
+
+    local percent=$((total_now * 100 / total_full + 1))
+    echo "$percent"
+}
+
+# Parameters
+LOW_LEVEL=20
+CRIT_LEVEL=10
+SLEEP_TIME=2
+BAT1_PATH="/sys/class/power_supply/BAT1"
+
+# Flags to track if warnings have been sent
+# 0 = false, 1 = true
+WARNED_LOW=0
+WARNED_CRIT=0
+
+while true; do
+    CAPACITY=$(get_battery_percentage)
+    STATUS=$(cat "$BAT1_PATH/status")
+
+    MSG="Bateria: $CAPACITY% ($STATUS)"
+
+    if [[ "$STATUS" == "Discharging" ]]; then
+        if (( CAPACITY <= CRIT_LEVEL )) && (( WARNED_CRIT == 0 )); then
+            notify-send -u critical "Bateria crítica, conecte o carregador urgentemente" "$MSG"
+            WARNED_CRIT=1
+        elif (( CAPACITY <= LOW_LEVEL )) && (( $WARNED_LOW == 0 )); then
+            notify-send -u critical "Bateria baixa, conecte o carregador" "$MSG"
+            WARNED_LOW=1
+        elif (( CAPACITY > LOW_LEVEL )); then
+            WARNED_LOW=0
+        elif (( CAPACITY > CRIT_LEVEL )); then
+            WARNED_CRIT=0
+        fi
+    fi
+
+    sleep "$SLEEP_TIME"
+done

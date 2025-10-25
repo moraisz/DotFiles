@@ -1,12 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+source ~/.local/bin/envs.sh
 
 # Caminhos
-ROFI_THEME="~/DotFiles/Configs/.config/rofi/menu/style/theme_selector/style.rasi"
+ROFI_THEME="$ROFI_THEME_SELECTOR_DIR/style.rasi"
 ROFI_CMD="rofi -dmenu -i -p 'Select Theme:' -theme $ROFI_THEME"
-THEMES_DIR="$HOME/DotFiles/Themes"
 
 # Lista de temas disponíveis (pega apenas diretórios)
-THEMES=$(ls -1 "$THEMES_DIR")
+THEMES=$(ls -1 "$HOME_THEMES_DIR")
 
 # Mostra lista no rofi
 CHOSEN_THEME=$(echo "$THEMES" | $ROFI_CMD)
@@ -15,7 +16,7 @@ CHOSEN_THEME=$(echo "$THEMES" | $ROFI_CMD)
 [ -z "$CHOSEN_THEME" ] && exit
 
 # Caminho completo do tema selecionado
-THEME_PATH="$THEMES_DIR/$CHOSEN_THEME"
+THEME_PATH="$HOME_THEMES_DIR/$CHOSEN_THEME"
 
 # Verifica se o tema existe
 if [ ! -d "$THEME_PATH" ]; then
@@ -23,13 +24,13 @@ if [ ! -d "$THEME_PATH" ]; then
     exit 1
 fi
 
-cp -rf "$THEME_PATH/btop/themes/style.theme" ~/DotFiles/Configs/.config/btop/themes/style.theme
-cp -rf "$THEME_PATH/hypr/hyprlandFiles/colors.conf" ~/DotFiles/Configs/.config/hypr/hyprlandFiles/colors.conf
-cp -rf "$THEME_PATH/kitty/theme.conf" ~/DotFiles/Configs/.config/kitty/theme.conf
-cp -rf "$THEME_PATH/mako/config" ~/DotFiles/Configs/.config/mako/config
-cp -rf "$THEME_PATH/nvim/lua/config/colorscheme.lua" ~/DotFiles/Configs/.config/nvim/lua/config/colorscheme.lua
-cp -rf "$THEME_PATH/rofi/colors.rasi" ~/DotFiles/Configs/.config/rofi/colors.rasi
-cp -rf "$THEME_PATH/waybar/colors.css" ~/DotFiles/Configs/.config/waybar
+cp -rf "$THEME_PATH/btop/themes/style.theme" $HOME_CONFIG_DIR/btop/themes/style.theme
+cp -rf "$THEME_PATH/hypr/hyprlandFiles/colors.conf" $HOME_CONFIG_DIR/hypr/hyprlandFiles/colors.conf
+cp -rf "$THEME_PATH/kitty/theme.conf" $HOME_CONFIG_DIR/kitty/theme.conf
+cp -rf "$THEME_PATH/mako/config" $HOME_CONFIG_DIR/mako/config
+cp -rf "$THEME_PATH/nvim/lua/config/colorscheme.lua" $HOME_CONFIG_DIR/nvim/lua/config/colorscheme.lua
+cp -rf "$THEME_PATH/rofi/colors.rasi" $HOME_CONFIG_DIR/rofi/colors.rasi
+cp -rf "$THEME_PATH/waybar/colors.css" $HOME_CONFIG_DIR/waybar
 
 hyprctl reload
 makoctl reload

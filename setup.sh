@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
 
-DOTFILES=$HOME/DotFiles
-DOTFILES_CONFIG_DIR=$DOTFILES/Configs/.config
-DOTFILES_LOCAL_DIR=$DOTFILES/Configs/.local
-
-CONFIG_DIR=$HOME/.config
-LOCAL_DIR=$HOME/.local
+source $HOME/DotFiles/Configs/.local/bin/envs.sh
 
 link() {
     local src="$1"
@@ -75,18 +70,18 @@ echo
 $action $DOTFILES/Configs/.zshrc ~/.zshrc
 $action $DOTFILES/Configs/.tmux.conf ~/.tmux.conf
 
-$action $DOTFILES_CONFIG_DIR/btop/ $CONFIG_DIR/btop
-$action $DOTFILES_CONFIG_DIR/fastfetch/ $CONFIG_DIR/fastfetch
-$action $DOTFILES_CONFIG_DIR/hypr $CONFIG_DIR/hypr
-$action $DOTFILES_CONFIG_DIR/kitty/ $CONFIG_DIR/kitty
-$action $DOTFILES_CONFIG_DIR/mako/ $CONFIG_DIR/mako
-$action $DOTFILES_CONFIG_DIR/nvim/ $CONFIG_DIR/nvim
-$action $DOTFILES_CONFIG_DIR/rofi/ $CONFIG_DIR/rofi
-$action $DOTFILES_CONFIG_DIR/waybar/ $CONFIG_DIR/waybar
+$action $DOTFILES_CONFIG_DIR/btop/ $HOME_CONFIG_DIR/btop
+$action $DOTFILES_CONFIG_DIR/fastfetch/ $HOME_CONFIG_DIR/fastfetch
+$action $DOTFILES_CONFIG_DIR/hypr/ $HOME_CONFIG_DIR/hypr
+$action $DOTFILES_CONFIG_DIR/kitty/ $HOME_CONFIG_DIR/kitty
+$action $DOTFILES_CONFIG_DIR/mako/ $HOME_CONFIG_DIR/mako
+$action $DOTFILES_CONFIG_DIR/nvim/ $HOME_CONFIG_DIR/nvim
+$action $DOTFILES_CONFIG_DIR/rofi/ $HOME_CONFIG_DIR/rofi
+$action $DOTFILES_CONFIG_DIR/waybar/ $HOME_CONFIG_DIR/waybar
 
-$action $DOTFILES_LOCAL_DIR/scripts/ $LOCAL_DIR/scripts
+$action $DOTFILES_BIN_DIR/ $HOME_BIN
 
-$action $DOTFILES/Themes/ $LOCAL_DIR/themes
-$action $DOTFILES/Wallpapers/ $LOCAL_DIR/wallpapers
+$action $DOTFILES_THEMES_DIR/ $HOME_THEMES
+$action $DOTFILES_WALLPAPERS_DIR/ $HOME_WALLPAPERS
 
 echo "Concluido!"

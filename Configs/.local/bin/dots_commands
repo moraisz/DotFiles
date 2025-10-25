@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+source "$HOME/.local/bin/envs.sh"
+
+SCRIPT="$HOME_BIN_DIR/$1"
+
+if [[ -x "$SCRIPT" && -f "$SCRIPT" ]]; then
+    "$SCRIPT" "${@:2}"
+    echo "$SCRIPT" "${@:2}"
+else
+    echo "Script '$1' not found or not executable."
+    exit 1
+fi

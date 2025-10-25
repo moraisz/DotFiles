@@ -90,13 +90,16 @@
         "on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'"
     },
     "network": {
-        "format-ethernet": " ",
-        "format-wifi": "󰤨 ",
-        "tooltip-format-ethernet": " {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-        "tooltip-format-wifi": "󰤨 {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-        "format-disconnected": "⚠ ",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "format": "{icon}",
+        "format-wifi": "{icon}",
+        "format-ethernet": "",
+        "format-disconnected": "󰤮",
+        "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
         "tooltip-format-disconnected": "Disconnected",
-        "interval": 2
+        "interval": 3,
+        "on-click": "bash -lc 'dots_commands manage_in_terminal.sh open_tui_app impala'"
     },
     "bluetooth": {
         "format": "",
@@ -105,7 +108,7 @@
         "tooltip-format": "Devices connected: {num_connections}\n{device_alias}",
         "tooltip-format-connected": "Devices connected: {num_connections}\n{device_alias}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-        "on-click": "blueman-manager"
+        "on-click": "dots_commands manage_in_terminal.sh open_tui_app bluetui"
     },
     "battery": {
         "format": "{icon}",
@@ -115,7 +118,7 @@
         },
         "tooltip": true,
         "tooltip-format": "Capacity: {capacity}%\n{timeTo}",
-        "interval": 1
+        "interval": 2
     },
     "pulseaudio#output": {
         "format": "{icon}",
@@ -137,6 +140,6 @@
     "custom/power": {
         "format": "󰤆",
         "tooltip": false,
-        "on-click": "~/.config/rofi/powermenu/powermenu.sh &"
+        "on-click": "~/.config/rofi/menu/powermenu/powermenu.sh &"
     }
 }
