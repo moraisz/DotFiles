@@ -26,7 +26,7 @@ inputbar {
 }
 
 entry {
-    placeholder: "Search...";
+    placeholder: "Pesquisar...";
     text-color: @foreground;
     background-color: @background;
     vertical-align: 0.5;

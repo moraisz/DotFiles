@@ -8,38 +8,38 @@ ROFI_CMD="rofi -dmenu -theme $ROFI_THEME"
 
 # Power menu options
 OPTIONS=(
-    " Cancel"
-    " Shutdown"
-    " Reboot"
-    " Lock"
-    " Suspend"
-    " Logout"
+    " Cancelar"
+    " Desligar"
+    " Reiniciar"
+    " Bloquear"
+    " Suspender"
+    " Deslogar"
 )
 
 # Show Rofi with two columns, no input bar, and large font
 CHOICE="$(printf '%s\n' "${OPTIONS[@]}" | $ROFI_CMD)"
 
 case "$CHOICE" in
-    " Cancel")
+    " Cancelar")
         exit 0
         ;;
-    " Shutdown")
+    " Desligar")
         systemctl poweroff
         ;;
-    " Reboot")
+    " Reiniciar")
         systemctl reboot
         ;;
-    " Lock")
+    " Bloquear")
         if command -v hyprlock >/dev/null; then
             hyprlock
         else
             notify-send "No lock utility found."
         fi
         ;;
-    " Suspend")
+    " Suspender")
         systemctl suspend
         ;;
-    " Logout")
+    " Deslogar")
         if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
             if command -v hyprctl >/dev/null; then
                 hyprctl dispatch exit

@@ -46,8 +46,13 @@ My Dotfiles for various applications and environments in Arch Linux with Hyprlan
 - Ublock Origin
 - DuckDuckGo
 - Dark Reader
+- Vimium
 
 ## How Install
 
 Clone the repository in your `$HOME` directory and execute the `setup.sh` script.
 
+## ToDO
+
+- Implement a temporary file to select the style configs only in local machine.
+- Implement a language selector in entire dotfiles (Portuguese and English).
