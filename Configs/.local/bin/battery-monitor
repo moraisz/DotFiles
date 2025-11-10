@@ -28,12 +28,18 @@ BAT1_PATH="/sys/class/power_supply/BAT1"
 # 0 = false, 1 = true
 WARNED_LOW=0
 WARNED_CRIT=0
+LAST_STATUS=""
 
 while true; do
     CAPACITY=$(get_battery_percentage)
     STATUS=$(cat "$BAT1_PATH/status")
 
     MSG="Bateria: $CAPACITY% ($STATUS)"
+
+    if [[ "$STATUS" != "Discharging" && "${LAST_STATUS:-Discharging}" == "Discharging" ]]; then
+        notify-send -u normal "Carregador conectado" "$MSG"
+    fi
+    LAST_STATUS="$STATUS"
 
     if [[ "$STATUS" == "Discharging" ]]; then
         if (( CAPACITY <= CRIT_LEVEL )) && (( WARNED_CRIT == 0 )); then
