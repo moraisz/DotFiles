@@ -1,2 +1,2 @@
 local cmd = vim.cmd
-cmd.colorscheme "tokyonight-night"
+cmd.colorscheme "catppuccin"

@@ -1,13 +1,13 @@
-/* Tokyo Night */
+/* Catppuccin Mocha */
 
 * {
-    background: #1a1b26;
-    background-alt: #283457;
+    background: #1e1e2e;
+    background-alt: #394161;
 
-    foreground: #a9b1d6;
-    foreground-alt: #9aa5ce;
+    foreground: #cdd6f4;
+    foreground-alt: #bac2de;
 
-    selected: #c0caf5;
+    selected: #cba6f7;
 
-    border: #c0caf5;
+    border: #cba6f7;
 }
