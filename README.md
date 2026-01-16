@@ -46,7 +46,7 @@ My Dotfiles for various applications and environments in Arch Linux with Hyprlan
 - Ublock Origin
 - DuckDuckGo
 - Dark Reader
-- Vimium
+- Vimium C
 
 ## How Install
 

@@ -31,3 +31,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # spicetify
 export PATH=$PATH:/home/morais/.spicetify
+
+export PATH="$HOME/.local/dotfiles:$PATH"
