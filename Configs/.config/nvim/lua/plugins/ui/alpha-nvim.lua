@@ -30,12 +30,11 @@ return {
 
         dashboard.section.buttons.val = {
             dashboard.button("e", "󰙅  File Explorer", ":Neotree toggle<CR>"),
-            dashboard.button("l", "󰒲  Lazy", ":Lazy<CR>"),
-            dashboard.button("m", "󰢛  Mason", ":Mason<CR>"),
             dashboard.button("f", "  Find File", ":Telescope find_files<CR>"),
             dashboard.button("n", "  New File", ":enew<CR>"),
             dashboard.button("r", "  Recent", ":Telescope oldfiles<CR>"),
             dashboard.button("g", "  Grep", ":Telescope live_grep<CR>"),
+            dashboard.button("l", "󰒲  Lazy", ":Lazy<CR>"),
             dashboard.button("q", "  Quit", ":qa<CR>"),
         }
         -- dashboard.section.buttons.opts.hl = "Function"

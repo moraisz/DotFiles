@@ -1,5 +1,6 @@
 local opt = vim.opt
 local o = vim.o
+local g = vim.g
 
 -- Interface
 opt.number = true               -- linhas numeradas
@@ -55,5 +56,6 @@ opt.shortmess:append("cI")     -- oculta mensagens redundantes
 
 -- Folds
 opt.foldlevel = 99
-opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()"
+
+g.lazyvim_python_lsp = "pyright"
+g.lazyvim_python_ruff = "ruff"

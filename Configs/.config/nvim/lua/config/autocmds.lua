@@ -1,3 +1,7 @@
+local function augroup(name)
+    return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
+end
+
 vim.api.nvim_create_autocmd("BufEnter", {
     group = vim.api.nvim_create_augroup("Neotree_start_directory", { clear = true }),
     desc = "Start Neo-tree with directory",
@@ -11,5 +15,67 @@ vim.api.nvim_create_autocmd("BufEnter", {
                 require("neo-tree")
             end
         end
+    end,
+})
+
+-- Highlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+    group = augroup("highlight_yank"),
+    callback = function()
+        (vim.hl or vim.highlight).on_yank()
+    end,
+})
+
+-- Fix conceallevel for json files
+vim.api.nvim_create_autocmd({ "FileType" }, {
+    group = augroup("json_conceal"),
+    pattern = { "json", "jsonc", "json5" },
+    callback = function()
+        vim.opt_local.conceallevel = 0
+    end,
+})
+
+-- Resize splits if window got resized
+vim.api.nvim_create_autocmd({ "VimResized" }, {
+    group = augroup("resize_splits"),
+    callback = function()
+        local current_tab = vim.fn.tabpagenr()
+        vim.cmd("tabdo wincmd =")
+        vim.cmd("tabnext " .. current_tab)
+    end,
+})
+
+-- close some filetypes with <q>
+vim.api.nvim_create_autocmd("FileType", {
+    group = augroup("close_with_q"),
+    pattern = {
+        "PlenaryTestPopup",
+        "checkhealth",
+        "dbout",
+        "gitsigns-blame",
+        "grug-far",
+        "help",
+        "lspinfo",
+        "neotest-output",
+        "neotest-output-panel",
+        "neotest-summary",
+        "notify",
+        "qf",
+        "spectre_panel",
+        "startuptime",
+        "tsplayground",
+    },
+    callback = function(event)
+        vim.bo[event.buf].buflisted = false
+        vim.schedule(function()
+            vim.keymap.set("n", "q", function()
+                vim.cmd("close")
+                pcall(vim.api.nvim_buf_delete, event.buf, { force = true })
+            end, {
+                    buffer = event.buf,
+                    silent = true,
+                    desc = "Quit buffer",
+                })
+        end)
     end,
 })

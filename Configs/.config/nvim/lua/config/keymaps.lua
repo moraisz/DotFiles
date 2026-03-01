@@ -1,83 +1,54 @@
-local wk = require("which-key")
+local map = require("utils.keybinding").map
 
--- Which Key
-wk.add({
-    { "<leader>e", "<cmd>Neotree toggle<cr>", icon = { icon = "󰙅", color = "yellow" }, desc = "Explorer NeoTree" },
-    { "<leader>l", "<cmd>Lazy<cr>", icon = "󰒲", desc = "Lazy" },
-    { "<leader>m", "<cmd>Mason<cr>", icon = "󰢛", desc = "Mason" },
+-- Lazy
+map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
-    { "<leader>a", icon = "󰚩", group = "+AI", mode = { "n", "v" } },
-    {
-        "<leader>aa",
-        function()
-            return require("CopilotChat").toggle()
-        end,
-        desc = "Toggle (CopilotChat)",
-        mode = { "n", "v" },
-    },
-    {
-        "<leader>ax",
-        function()
-            return require("CopilotChat").reset()
-        end,
-        desc = "Clear (CopilotChat)",
-        mode = { "n", "v" },
-    },
-    {
-        "<leader>aq",
-        function()
-            vim.ui.input({
-                prompt = "Quick Chat: ",
-            }, function(input)
-                    if input ~= "" then
-                        require("CopilotChat").ask(input)
-                    end
-                end)
-        end,
-        desc = "Quick Chat (CopilotChat)",
-        mode = { "n", "v" },
-    },
-    {
-        "<leader>ap",
-        function()
-            require("CopilotChat").select_prompt()
-        end,
-        desc = "Prompt Actions (CopilotChat)",
-        mode = { "n", "v" },
-    },
+-- Better indenting
+map("v", "<", "<gv")
+map("v", ">", ">gv")
 
-    { "<leader>b", group = "Buffer" }, -- group
-    { "<leader>bl", "<cmd>bnext<cr>", desc = "Next Buffer" }, -- no need to specify mode since it's inherited
-    { "<leader>bh", "<cmd>bprevious<cr>", desc = "Previous Buffer" }, -- no need to specify mode since it's inherited
-    { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" }, -- no need to specify mode since it's inherited
+-- Move Lines
+map("n", "<A-j>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move Down" })
+map("n", "<A-k>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Move Up" })
+map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
+map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
+map("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Down" })
+map("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
 
-    { "<leader>s", group = "Session" }, -- group
-    { "<leader>sq", "<cmd>q<cr>", desc = "Quit" }, -- no need to specify mode since it's inherited
-    { "<leader>sQ", "<cmd>qa<cr>", desc = "Quit All" }, -- no need to specify mode since it's inherited
-    { "<leader>sw", "<cmd>w<cr>", desc = "Write" },
+-- Clear search highlights
+map("n", "<Esc>", "<cmd>noh<CR><Esc>", { silent = true })
 
-    { "<leader>f", group = "File" }, -- group
-    { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File" },
-    { "<leader>fn", "<cmd>enew<cr>", desc = "New File" },
+-- Tmux and Window navigation
+map("n", "<C-h>", [[<Cmd>lua require('nvim-tmux-navigation').NvimTmuxNavigateLeft()<CR>]], { silent = true })
+map("n", "<C-j>", [[<Cmd>lua require('nvim-tmux-navigation').NvimTmuxNavigateDown()<CR>]], { silent = true })
+map("n", "<C-k>", [[<Cmd>lua require('nvim-tmux-navigation').NvimTmuxNavigateUp()<CR>]], { silent = true })
+map("n", "<C-l>", [[<Cmd>lua require('nvim-tmux-navigation').NvimTmuxNavigateRight()<CR>]], { silent = true })
 
-    { "<leader>w", proxy = "<c-w>", group = "Windows" },
-})
+-- Window resizing
+map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
+map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
+map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
+map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 
--- Binds for common actions
-vim.keymap.set("v", "<", "<gv")
-vim.keymap.set("v", ">", ">gv")
+-- Buffer navigation
+map("n", "<M-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+map("n", "<M-h>", "<cmd>bprevious<cr>", { desc = "Previous Buffer" })
+map("n", "<leader>bd", function() Snacks.bufdelete() end, { desc = "Delete Buffer" })
+map("n", "<leader>bo", function() Snacks.bufdelete.other() end, { desc = "Delete Other Buffers" })
+map("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
 
-vim.keymap.set("n", "<Esc>", "<cmd>noh<CR><Esc>", { silent = true })
+-- Session
+map("n", "<leader>sw", "<cmd>w<cr>", { desc = "Write" })
+map("n", "<leader>sq", "<cmd>q<cr>", { desc = "Quit" })
+map("n", "<leader>sQ", "<cmd>qa<cr>", { desc = "Quit All" })
 
-vim.keymap.set('n', '<C-h>', [[<Cmd>lua require('nvim-tmux-navigation').NvimTmuxNavigateLeft()<CR>]], { silent = true })
-vim.keymap.set('n', '<C-j>', [[<Cmd>lua require('nvim-tmux-navigation').NvimTmuxNavigateDown()<CR>]], { silent = true })
-vim.keymap.set('n', '<C-k>', [[<Cmd>lua require('nvim-tmux-navigation').NvimTmuxNavigateUp()<CR>]], { silent = true })
-vim.keymap.set('n', '<C-l>', [[<Cmd>lua require('nvim-tmux-navigation').NvimTmuxNavigateRight()<CR>]], { silent = true })
+-- new file
+map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 
-vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
-vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
-vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
-vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
-
-vim.keymap.set("n", "<M-h>", "<cmd>bprevious<cr>")
-vim.keymap.set("n", "<M-l>", "<cmd>bnext<cr>")
+-- Toggle options
+Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
+Snacks.toggle.diagnostics():map("<leader>ud")
+Snacks.toggle.line_number():map("<leader>ul")
+if vim.lsp.inlay_hint then
+  Snacks.toggle.inlay_hints():map("<leader>uh")
+end
