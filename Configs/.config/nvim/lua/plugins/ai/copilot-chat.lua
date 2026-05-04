@@ -7,7 +7,7 @@ return {
         user = user:sub(1, 1):upper() .. user:sub(2)
 
         return {
-            model = 'claude-sonnet-4.5',
+            model = 'claude-haiku-4.5',
             language = 'Portuguese',
             auto_insert_mode = true,
             question_header = "  " .. user .. " ",

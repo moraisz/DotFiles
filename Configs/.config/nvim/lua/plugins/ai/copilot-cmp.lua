@@ -1,6 +1,8 @@
 return {
     "zbirenbaum/copilot.lua",
-    dependencies = { "zbirenbaum/copilot-cmp", opts = {} },
+    dependencies = {
+        "zbirenbaum/copilot-cmp", opts = {},
+    },
     cmd = "Copilot",
     build = ":Copilot auth",
     event = "BufReadPost",

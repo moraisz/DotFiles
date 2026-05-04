@@ -1,0 +1,55 @@
+#!/bin/bash
+# wallpaper-set — define o wallpaper em todos os monitores e salva no cache
+# Uso: wallpaper-set /caminho/para/imagem.jpg
+#
+# Coloque em ~/.local/bin/ e dê chmod +x
+
+CACHE_DIR="$HOME/.cache/wallpaper"
+CACHE_FILE="$CACHE_DIR/current"
+
+# Verifica se passou o caminho da imagem
+if [[ -z "$1" ]]; then
+    echo "Uso: wallpaper-set <caminho-da-imagem>" >&2
+    exit 1
+fi
+
+WALLPAPER="$(realpath "$1")"
+
+# Verifica se o arquivo existe
+if [[ ! -f "$WALLPAPER" ]]; then
+    echo "Erro: arquivo não encontrado: $WALLPAPER" >&2
+    exit 1
+fi
+
+# Garante que o diretório de cache existe
+mkdir -p "$CACHE_DIR"
+
+# Garante que o daemon está rodando
+if ! pgrep -x "awww" > /dev/null; then
+    awww-daemon &
+    # Aguarda o daemon inicializar
+    sleep 0.5
+fi
+
+# Aplica o wallpaper em todos os monitores detectados
+MONITORS=$(awww query --outputs 2>/dev/null | awk '{print $1}')
+
+if [[ -z "$MONITORS" ]]; then
+    # Fallback: aplica sem especificar monitor (todos)
+    awww img "$WALLPAPER" \
+        --transition-type grow \
+        --transition-fps 60 \
+        --transition-duration 0.8
+else
+    for MONITOR in $MONITORS; do
+        awww img -o "$MONITOR" "$WALLPAPER" \
+            --transition-type grow \
+            --transition-fps 60 \
+            --transition-duration 0.8
+    done
+fi
+
+# Salva o caminho no cache apenas se o awww teve sucesso
+if [[ $? -eq 0 ]]; then
+    echo "$WALLPAPER" > "$CACHE_FILE"
+fi

@@ -32,6 +32,11 @@ return {
             lua = { "stylua" },
             php = { "php_cs_fixer" },
             python = { "black" },
+            json = { "prettier" },
+            javascript = { "prettier" },
+            typescript = { "prettier" },
+            css = { "prettier" },
+            html = { "prettier" },
         },
         formatters = {
             php_cs_fixer = {

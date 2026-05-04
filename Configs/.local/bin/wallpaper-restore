@@ -1,0 +1,43 @@
+#!/bin/bash
+# wallpaper-restore — restaura o último wallpaper salvo
+# Chamado no boot (exec-once) e ao reconectar monitor (via hyprland windowrulev2)
+#
+# Coloque em ~/.local/bin/ e dê chmod +x
+
+CACHE_FILE="$HOME/.cache/wallpaper/current"
+
+# Verifica se existe um wallpaper salvo no cache
+if [[ ! -f "$CACHE_FILE" ]]; then
+    echo "Nenhum wallpaper salvo em cache. Defina um com wallpaper-set primeiro." >&2
+    exit 0
+fi
+
+WALLPAPER="$(cat "$CACHE_FILE")"
+
+# Verifica se o arquivo ainda existe no disco
+if [[ ! -f "$WALLPAPER" ]]; then
+    echo "Erro: wallpaper salvo não encontrado no disco: $WALLPAPER" >&2
+    exit 1
+fi
+
+# Garante que o daemon está rodando
+if ! pgrep -x "awww" > /dev/null; then
+    awww-daemon &
+    sleep 0.5
+fi
+
+# Aguarda o compositor estar pronto (importante no boot)
+sleep 0.3
+
+# Aplica em todos os monitores detectados
+MONITORS=$(awww query --outputs 2>/dev/null | awk '{print $1}')
+
+if [[ -z "$MONITORS" ]]; then
+    awww img "$WALLPAPER" --transition-type simple --transition-fps 30
+else
+    for MONITOR in $MONITORS; do
+        awww img -o "$MONITOR" "$WALLPAPER" \
+            --transition-type simple \
+            --transition-fps 30
+    done
+fi

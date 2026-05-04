@@ -13,7 +13,7 @@ CHOICE=$(\
 
 WALLPAPER="$HOME_WALLPAPERS_DIR/$CHOICE"
 
-# swww img -t any --transition-bezier 0.0,0.0,1.0,1.0 --transition-duration 1 --transition-step 255 --transition-fps 60 "$WALLPAPER"
-swww img -t any --transition-duration 1 --transition-step 255 --transition-fps 60 "$WALLPAPER"
+# awww img -t any --transition-duration 2 --transition-step 255 --transition-fps 60 "$WALLPAPER"
+wallpaper-set "$WALLPAPER"
 
 exit 1
